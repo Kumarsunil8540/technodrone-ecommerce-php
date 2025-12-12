@@ -1,0 +1,72 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main Box / Hero Section */
+#main_box {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vmin;
+    flex-wrap: wrap;
+    background-image: url("hiro_pic1.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 5vmin;
+}
+
+/* Courses & Component Cards */
+#courses, #component {
+    width: 25vmax;
+    min-width: 250px;
+    height: 20vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vmin;
+    background-color: rgba(255, 218, 185, 0.9);
+    text-align: center;
+    padding: 2vmin;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+#courses h1, #component h1 {
+    font-size: 4vmin;
+    text-transform: uppercase;
+    margin-bottom: 1vmin;
+    color: #333;
+}
+
+#courses p, #component p {
+    font-size: 2vmin;
+    color: #555;
+}
+
+/* Hover effect */
+#courses:hover, #component:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Responsive for tablets / mobile */
+@media(max-width:800px){
+    #courses, #component {
+        width: 80%;
+        height: auto;
+        padding: 3vmin;
+    }
+    #courses h1, #component h1 {
+        font-size: 5vmin;
+    }
+    #courses p, #component p {
+        font-size: 3vmin;
+    }
+}

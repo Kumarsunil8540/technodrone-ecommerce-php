@@ -1,0 +1,81 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Course list box */
+.list_box {
+    max-width: 900px;
+    margin: 5vmin auto;
+    padding: 4vmin;
+    border-radius: 12px;
+    background: #f8f9fa;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.list_box h1 {
+    text-align: center;
+    font-size: 5vmin;
+    margin-bottom: 4vmin;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* List styling */
+.list_box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
+}
+
+/* List items */
+.list_box li {
+    background: #ffffff;
+    padding: 2vmin 3vmin;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Links */
+.list_box li a {
+    text-decoration: none;
+    font-size: 3.2vmin;
+    font-weight: 600;
+    color: #222;
+    display: block;
+}
+
+/* Hover effect */
+.list_box li:hover {
+    border-color: #ff4d4d;
+    background: #fff0f0;
+    transform: translateY(-3px);
+}
+
+/* Hover link color */
+.list_box li:hover a {
+    color: #e60000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .list_box {
+        padding: 3vmin;
+        margin: 3vmin;
+    }
+
+    .list_box h1 {
+        font-size: 6vmin;
+    }
+
+    .list_box li a {
+        font-size: 4vmin;
+    }
+}

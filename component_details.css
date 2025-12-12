@@ -1,0 +1,212 @@
+/* component_details.css */
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Header/Footer spacing fix */
+header, footer {
+    margin-bottom: 20px;
+}
+
+/* Container */
+.details-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    gap: 40px;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+/* Image box */
+.image-box {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-box img:hover {
+    transform: scale(1.05);
+}
+
+/* Info box */
+.info-box {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-box h1 {
+    font-size: 2rem;
+    color: #222;
+}
+
+.info-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.info-box strong {
+    color: #555;
+}
+
+/* Buy Now button */
+.buy-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.buy-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* RELATED COMPONENTS */
+.related-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.related-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #222;
+    text-align: center;
+}
+
+.related-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.related-container .component-box {
+    flex: 1 1 220px;
+    max-width: 260px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-container .component-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.related-container .component-box .component-img {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.related-container .component-box:hover .component-img {
+    transform: scale(1.05);
+}
+
+.related-container .component-box h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.related-container .component-box p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.related-container .component-box .apply-btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.related-container .component-box .apply-btn:hover {
+    background-color: #0056b3;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+    .details-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 15px;
+    }
+    .image-box img {
+        max-width: 100%;
+    }
+    .info-box h1 {
+        font-size: 1.8rem;
+    }
+    .buy-btn {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .related-container {
+        gap: 15px;
+    }
+    .related-container .component-box {
+        flex: 1 1 45%;
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .related-container .component-box {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .info-box h1 {
+        font-size: 1.5rem;
+    }
+    .buy-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

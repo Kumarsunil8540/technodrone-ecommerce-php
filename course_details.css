@@ -1,0 +1,93 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f7f7f7;
+    color: #333;
+}
+
+/* Container */
+.details-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Image */
+.image-box {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Info */
+.info-box {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-box h1 {
+    font-size: 2rem;
+    color: #222;
+}
+
+.info-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.info-box strong {
+    color: #555;
+}
+
+/* Button */
+.enroll-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.enroll-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .details-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .info-box h1 {
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.course_container {
+    max-width: 900px;
+    margin: 5vmin auto;
+    padding: 4vmin;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.course_container h1 {
+    text-align: center;
+    font-size: 5vmin;
+    margin-bottom: 3vmin;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.course_container h2 {
+    font-size: 4vmin;
+    margin-top: 3vmin;
+    margin-bottom: 1.5vmin;
+    color: #555;
+}
+
+.course_container p {
+    font-size: 3vmin;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 2vmin;
+}
+
+.course_container ul {
+    list-style: disc inside;
+    margin-left: 2vmin;
+}
+
+.course_container ul li {
+    margin-bottom: 1vmin;
+    font-size: 2.8vmin;
+    color: #333;
+}
+
+@media(max-width:600px){
+    .course_container h1 {
+        font-size: 6vmin;
+    }
+    .course_container h2 {
+        font-size: 5vmin;
+    }
+    .course_container p, .course_container ul li {
+        font-size: 4vmin;
+    }
+}
+
+.apply_btn_container {
+    text-align: center;
+    margin-top: 4vmin;
+    margin-bottom: 4vmin;
+}
+
+.apply_btn {
+    display: inline-block;
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 1.5vmin 3vmin;
+    font-size: 3vmin;
+    border-radius: 1vmin;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.apply_btn:hover {
+    background-color: #e60000;
+    transform: scale(1.1);
+}
+
+.apply_form {
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
+    max-width: 600px;
+    margin: auto;
+}
+
+.apply_form label {
+    font-size: 3vmin;
+    font-weight: 600;
+}
+
+.apply_form input, 
+.apply_form textarea {
+    padding: 1vmin 1.5vmin;
+    font-size: 2.8vmin;
+    border-radius: 0.8vmin;
+    border: 1px solid #ccc;
+}
+
+.apply_form button {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 1.5vmin;
+    font-size: 3vmin;
+    border-radius: 1vmin;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.apply_form button:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+}
+

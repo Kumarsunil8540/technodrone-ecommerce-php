@@ -1,0 +1,190 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* Font set for a cleaner look */
+    font-family: 'Inter', sans-serif, Arial; 
+}
+
+/* ---------------------------------------------------- */
+/* 1. Base Styles and Hover Effect                      */
+/* ---------------------------------------------------- */
+
+/* Common hover border effect (changed to subtle blue) */
+.border {
+    border: 2px solid transparent;
+    transition: border 0.3s ease-in-out;
+}
+.border:hover {
+    /* Subtle highlight on hover */
+    border: 2px solid #2874f0; 
+}
+
+/* ---------------------------------------------------- */
+/* 2. Header Main Container (Professional Look)         */
+/* ---------------------------------------------------- */
+.head_div {
+    /* Flipkart/Amazon style light header */
+    height: 90px; /* Fixed height for desktop */
+    background-color: #ffffff; 
+    border-bottom: 1px solid #e0e0e0; /* Light separator */
+    
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 40px; /* Adequate horizontal padding */
+    flex-wrap: wrap; 
+    gap: 1.5rem; /* Use rem for consistent spacing */
+    
+    /* Added subtle shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+}
+
+/* ---------------------------------------------------- */
+/* 3. Logo and Branding                                 */
+/* ---------------------------------------------------- */
+.logo {
+    height: 70px;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    /* Removed distracting background colors */
+    background-color: transparent; 
+    background-image: url("techo_logo.jpg");
+    background-size: contain; /* Use contain to ensure logo visibility */
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+/* Contact number (Made it secondary, less dominant) */
+.contact_no {
+    font-weight: 600;
+    font-size: 1.1rem; /* Smaller font for professionalism */
+    color: #555555; /* Muted color */
+}
+
+/* ---------------------------------------------------- */
+/* 4. Social Media & Menu                               */
+/* ---------------------------------------------------- */
+
+/* Social media icons (Prominent but professional) */
+.social_media {
+    display: flex;
+    gap: 1.5rem; 
+    font-size: 1.5rem; /* Appropriate icon size */
+    justify-content: center;
+    align-items: center;
+}
+.social_media i {
+    color: #007bff; /* Use standard blue for social icons */
+    transition: color 0.3s;
+}
+.social_media i:hover {
+    color: #2874f0; /* Darker hover blue */
+}
+
+/* Menu (login/signup) */
+.manu_div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Buttons (Primary Action Color) */
+.login_btn, .sign_up_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px; /* Subtle rounding */
+    height: 40px;
+    width: 100px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Login/Sign Up Buttons Styling */
+.login_btn {
+    background-color: #f0f0f0;
+    border: 1px solid #cccccc;
+    color: #333333;
+}
+.login_btn:hover {
+    background-color: #e0e0e0;
+}
+
+.sign_up_btn {
+    /* Primary action button */
+    background-color: #ff9900; /* Orange/Gold CTA color */
+    border: 1px solid #e68a00;
+    color: #ffffff;
+}
+.sign_up_btn:hover {
+    background-color: #e68a00;
+    box-shadow: 0 4px 8px rgba(255, 153, 0, 0.4);
+}
+
+/* ---------------------------------------------------- */
+/* 5. Media Queries (Improved Mobile Layout)            */
+/* ---------------------------------------------------- */
+
+/* Hide/Show for large screen */
+@media (min-width:768px) { /* Changed breakpoint to 768px for better tablet support */
+    .hide_max {
+        display: none;
+    }
+}
+
+/* Hide/Show for small screen */
+@media (max-width:767px) {
+    .hide {
+        display: none;
+    }
+    .head_div {
+        flex-direction: column; 
+        height: auto;
+        padding: 15px;
+        align-items: stretch; /* Stretch items to full width */
+    }
+    
+    .logo {
+        width: 100%; /* Full width logo area on mobile */
+        height: 50px;
+        background-position: center;
+        margin-bottom: 10px;
+    }
+    
+    /* Contact and Social on a single line */
+    .top_bar_mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .contact_no {
+        font-size: 0.9rem;
+    }
+    
+    .social_media {
+        font-size: 1.2rem; 
+        gap: 1rem;
+    }
+    
+    /* Menu at the bottom center */
+    .manu_div {
+        justify-content: center;
+        width: 100%;
+    }
+    .login_btn, .sign_up_btn {
+        width: 45%; /* Wider buttons */
+        height: 45px;
+        font-size: 1rem;
+    }
+}

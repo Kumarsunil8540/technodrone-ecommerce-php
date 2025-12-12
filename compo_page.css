@@ -1,0 +1,838 @@
+/*
+|--------------------------------------------------------------------------
+| Techno Drone Components - Futuristic, Eye-Friendly Dark Theme CSS
+|--------------------------------------------------------------------------
+| Version: 2.1 (Optimized for Size, Readability, and Mobile Responsiveness)
+| Total Lines: ~1000+
+|
+*/
+
+/* ========================================================== */
+/* 1. CSS VARIABLES & RESETS (Eye-Friendly Dark Theme)        */
+/* ========================================================== */
+:root {
+    /* Color Palette: Eye-Friendly Futuristic Dark */
+    --color-bg-deep: #0A0A0A;         /* Near Black for deeper contrast */
+    --color-bg-medium: #181818;       /* Base Dark (Main background) */
+    --color-bg-light: #282828;        /* Lighter dark for cards/inputs */
+    
+    --color-text-primary: #F0F0F0;    /* Soft White */
+    --color-text-secondary: #B0B0B0;  /* Muted Gray */
+    
+    --color-accent-blue: #00AFFF;     /* Sky Blue (Softer Neon) */
+    --color-accent-green: #00E676;    /* Emerald Green (Calm CTA) */
+    --color-danger: #F44336;          /* Muted Red for Sale/Alerts */
+    --color-border-subtle: #3A3A3A;   /* Smoother border */
+    
+    /* Reduced Glow for Eye Comfort */
+    --shadow-neon: 0 0 8px rgba(0, 175, 255, 0.4); 
+    --shadow-card: 0 6px 25px rgba(0, 0, 0, 0.85);
+
+    --font-primary: 'Inter', sans-serif;
+    --max-content-width: 1400px;
+    --header-height: 80px; /* Assuming header height */
+    
+    /* Transition Defaults */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-medium: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Global Reset and Box Sizing */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { 
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+}
+
+body.dark-theme {
+    background: var(--color-bg-deep);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    font-family: var(--font-primary);
+    min-height: 100vh;
+    transition: background 0.7s ease, color 0.7s ease;
+}
+
+/* Global Container Styles */
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.main-content-padding {
+    padding-top: 50px;
+    padding-bottom: 70px; 
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-accent-blue);
+    transition: var(--transition-fast);
+}
+a:hover {
+    color: var(--color-accent-green);
+    text-shadow: 0 0 5px rgba(0, 230, 118, 0.5);
+}
+h1, h2, h3, h4 {
+    color: var(--color-text-primary);
+    font-weight: 800;
+}
+
+/* Custom Scrollbar (Webkit) */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-bg-medium); }
+::-webkit-scrollbar-thumb { 
+    background: var(--color-accent-blue); 
+    border-radius: 5px; 
+    box-shadow: 0 0 5px rgba(0, 175, 255, 0.4);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent-green); }
+
+/* Utility Classes */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-glow {
+    text-shadow: 0 0 5px var(--color-accent-blue);
+}
+
+
+/* ========================================================== */
+/* 2. HERO SECTION & CTA (Refined Glow)                       */
+/* ========================================================== */
+.hero-section {
+    background: linear-gradient(145deg, var(--color-bg-medium) 0%, var(--color-bg-deep) 100%);
+    padding: 120px 20px 100px;
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 4px solid var(--color-accent-blue);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+    position: relative;
+    overflow: hidden;
+}
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-accent-blue);
+    box-shadow: 0 0 15px var(--color-accent-blue);
+    animation: neon-border-pulse 4s infinite alternate;
+    opacity: 0.8;
+}
+@keyframes neon-border-pulse {
+    from { transform: scaleX(0.98); }
+    to { transform: scaleX(1.02); }
+}
+
+.hero-message {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.hero-section h1 {
+    font-size: 3.8rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(0, 175, 255, 0.7), 0 0 15px rgba(0, 175, 255, 0.3);
+    letter-spacing: 1px;
+}
+.hero-section p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: var(--color-text-secondary);
+}
+.hero-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.primary-cta-btn, .secondary-cta-btn {
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    border: 2px solid transparent;
+}
+.primary-cta-btn {
+    background: var(--color-accent-blue);
+    color: var(--color-bg-deep);
+}
+.primary-cta-btn:hover {
+    background: var(--color-accent-green);
+    box-shadow: 0 0 20px var(--color-accent-green);
+    transform: translateY(-4px) scale(1.03);
+}
+.secondary-cta-btn {
+    background: none;
+    border-color: var(--color-text-secondary);
+    color: var(--color-text-secondary);
+}
+.secondary-cta-btn:hover {
+    border-color: var(--color-accent-blue);
+    color: var(--color-accent-blue);
+    background: rgba(0, 175, 255, 0.1);
+    transform: scale(1.05);
+}
+
+
+/* ========================================================== */
+/* 3. FEATURE BANNERS (Enhanced Glassmorphism)                */
+/* ========================================================== */
+.feature-banners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+.feature-banner {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    position: relative;
+    padding: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-medium), border 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid var(--color-border-subtle);
+    z-index: 1; /* Ensure banner content is above the overlay */
+    
+    /* Subtle Glassmorphism Effect */
+    background: rgba(40, 40, 40, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.feature-banner:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent-green);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 230, 118, 0.6);
+}
+.feature-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    z-index: 2; /* Dark overlay */
+}
+.feature-banner h3 {
+    font-size: 1.6rem;
+    z-index: 3;
+    color: var(--color-accent-blue);
+    text-shadow: var(--shadow-neon);
+    position: absolute; 
+    bottom: 45px;
+    left: 25px;
+}
+.feature-banner p {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    z-index: 3;
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    font-size: 0.9rem;
+}
+
+
+/* ========================================================== */
+/* 4. TOOLBAR & SEARCH/SORT (Optimized for Input)             */
+/* ========================================================== */
+.toolbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+    background: var(--color-bg-light);
+    padding: 20px 30px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border-subtle);
+    box-shadow: var(--shadow-card);
+}
+/* Search Styling */
+.search-container {
+    display: flex;
+    flex-grow: 1;
+    max-width: 550px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--color-border-subtle);
+    transition: var(--transition-fast);
+}
+.search-container:focus-within {
+    border-color: var(--color-accent-blue);
+    box-shadow: var(--shadow-neon);
+}
+#searchInput {
+    padding: 14px 20px;
+    flex-grow: 1;
+    background: var(--color-bg-deep);
+    color: var(--color-text-primary);
+    font-size: 1.05rem;
+    outline: none;
+    border: none;
+}
+#searchInput::placeholder {
+    color: var(--color-text-secondary);
+}
+#searchBtn {
+    padding: 14px 20px;
+    background: var(--color-accent-blue);
+    color: var(--color-bg-deep);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: none;
+}
+#searchBtn:hover {
+    background: var(--color-accent-green);
+    box-shadow: 0 0 12px rgba(0, 230, 118, 0.8);
+}
+/* Sorting Styling */
+.sorting-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.sorting-container label {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+#sortSelect {
+    padding: 12px 18px;
+    border: 1px solid var(--color-accent-blue);
+    background: var(--color-bg-deep);
+    color: var(--color-accent-blue);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    appearance: none;
+    box-shadow: 0 0 5px rgba(0, 175, 255, 0.5);
+    transition: var(--transition-fast);
+}
+#sortSelect:hover {
+    box-shadow: 0 0 10px var(--color-accent-green);
+    border-color: var(--color-accent-green);
+    color: var(--color-accent-green);
+}
+
+
+/* ========================================================== */
+/* 5. MAIN GRID LAYOUT & SIDEBAR (Sticky Filters)             */
+/* ========================================================== */
+.main-grid-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 50px;
+}
+
+/* Sidebar Styling */
+.sidebar-filters {
+    background: var(--color-bg-light);
+    padding: 30px;
+    border-radius: 12px;
+    height: fit-content;
+    position: sticky;
+    top: calc(var(--header-height) + 20px); 
+    border: 1px solid var(--color-accent-blue);
+    box-shadow: 0 0 20px rgba(0, 175, 255, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.filter-title {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+    color: var(--color-accent-green);
+    border-bottom: 2px solid var(--color-accent-green);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.filter-group {
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding-bottom: 20px;
+}
+.filter-group h4 {
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+    color: var(--color-text-primary);
+    border-left: 4px solid var(--color-accent-blue);
+    padding-left: 15px;
+}
+
+/* Category Filters (Pills) */
+.filter-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    background: var(--color-bg-deep);
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-secondary);
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    transition: var(--transition-fast);
+    cursor: pointer;
+    font-weight: 500;
+}
+.filter-btn.active, .filter-btn:hover {
+    background: var(--color-accent-blue);
+    color: var(--color-bg-deep);
+    border-color: var(--color-accent-blue);
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(0, 175, 255, 0.5);
+    transform: translateX(3px);
+}
+
+/* Checkbox Styling */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    user-select: none; /* Prevent text selection */
+}
+.checkbox-label input[type="checkbox"] {
+    margin-right: 12px;
+    accent-color: var(--color-accent-green);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-accent-green);
+    border-radius: 3px;
+    background: var(--color-bg-deep);
+}
+/* Price Range */
+.price-slider {
+    width: 100%;
+    accent-color: var(--color-accent-green);
+    margin: 20px 0 15px;
+    height: 8px;
+}
+.price-range-display {
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-accent-green);
+    padding: 8px;
+    border: 1px solid var(--color-accent-green);
+    border-radius: 6px;
+    background: rgba(0, 230, 118, 0.05);
+    box-shadow: 0 0 5px rgba(0, 230, 118, 0.3);
+}
+
+
+/* ========================================================== */
+/* 6. PRODUCT LISTING CARDS (Optimized Smaller Size)          */
+/* ========================================================== */
+.component-section {
+    display: grid;
+    /* Optimized: Slightly smaller min width for better grid fit */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px; 
+    margin-bottom: 70px;
+}
+.component-card {
+    background: var(--color-bg-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition-medium);
+    border: 1px solid var(--color-border-subtle);
+    height: auto; /* Allow content to dictate height */
+}
+.component-card:hover {
+    transform: translateY(-5px); /* Reduced lift */
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 175, 255, 0.3);
+}
+
+/* Card Header */
+.card-header {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10;
+}
+.badge {
+    background: var(--color-danger);
+    color: white;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    border-radius: 50px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+.wishlist-btn {
+    background: rgba(40, 40, 40, 0.8);
+    color: var(--color-text-secondary);
+    border: 2px solid var(--color-text-secondary);
+    width: 40px; /* Smaller button */
+    height: 40px; /* Smaller button */
+    font-size: 1.1rem;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+.wishlist-btn:hover {
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+    background: var(--color-bg-deep);
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Image */
+.component-img-container {
+    width: 100%;
+    height: 200px; /* KEY: Reduced Image Height for smaller card */
+    background: linear-gradient(180deg, var(--color-bg-deep), var(--color-bg-light));
+    border-bottom: 3px solid var(--color-accent-blue);
+}
+.component-img-styled {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.component-card:hover .component-img-styled {
+    transform: scale(1.05); /* Reduced scale on hover */
+}
+
+/* Details */
+.component-details {
+    padding: 20px; 
+}
+.component-name {
+    font-size: 1.25rem; /* Slightly smaller name font */
+    margin-bottom: 10px;
+    height: 48px; 
+    color: var(--color-text-primary);
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.rating-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--color-border-subtle);
+}
+.rating-stars {
+    color: var(--color-accent-green);
+    font-size: 1.1rem;
+    text-shadow: 0 0 3px rgba(0, 230, 118, 0.5);
+}
+.stock-info {
+    font-size: 0.9rem;
+    color: var(--color-accent-green);
+    font-weight: 600;
+}
+
+.price-info {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--color-accent-green);
+    padding-left: 15px;
+}
+.price {
+    font-size: 2rem; /* Adjusted for smaller card */
+    color: var(--color-accent-green);
+    font-weight: 900;
+}
+.old-price {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    text-decoration: line-through;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    gap: 10px; /* Reduced gap */
+}
+.btn {
+    border-radius: 6px;
+    font-size: 0.95rem; /* Adjusted for smaller button */
+    padding: 10px 15px; /* KEY: Reduced padding for smaller button */
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+.detail-btn {
+    flex: 1;
+    background: var(--color-bg-deep);
+    color: var(--color-accent-blue);
+    border: 2px solid var(--color-accent-blue);
+}
+.detail-btn:hover {
+    background: var(--color-accent-blue);
+    color: var(--color-bg-deep);
+    box-shadow: 0 0 10px rgba(0, 175, 255, 0.7);
+}
+.cart-btn {
+    flex: 2;
+    background: var(--color-accent-green);
+    color: var(--color-bg-deep);
+    border: 2px solid var(--color-accent-green);
+}
+.cart-btn:hover {
+    background: #00FF99;
+    box-shadow: 0 0 15px rgba(0, 230, 118, 1);
+}
+
+
+/* ========================================================== */
+/* 7. LIGHT THEME SUPPORT (Expanded Overrides)                */
+/* ========================================================== */
+body.light-theme {
+    --color-bg-deep: #F0F0F0;
+    --color-bg-medium: #FFFFFF;
+    --color-bg-light: #EEEEEE;
+    --color-text-primary: #121212;
+    --color-text-secondary: #555555;
+    --color-accent-blue: #007BFF;
+    --color-accent-green: #28A745;
+    --color-border-subtle: #DDDDDD;
+    --shadow-neon: none;
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .hero-section {
+    background: linear-gradient(145deg, var(--color-bg-medium) 0%, var(--color-bg-light) 100%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--color-accent-blue);
+}
+body.light-theme .hero-section h1 {
+    text-shadow: none;
+    color: var(--color-accent-blue);
+}
+
+body.light-theme .filter-btn {
+    background: var(--color-bg-light);
+    border-color: var(--color-border-subtle);
+    color: var(--color-text-secondary);
+}
+body.light-theme .filter-btn.active, body.light-theme .filter-btn:hover {
+    background: var(--color-accent-blue);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+body.light-theme .sidebar-filters,
+body.light-theme .component-card,
+body.light-theme .toolbar-top {
+    background: var(--color-bg-medium);
+    border-color: var(--color-border-subtle);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+body.light-theme .detail-btn {
+    background: white;
+    color: var(--color-accent-blue);
+}
+
+
+/* ========================================================== */
+/* 8. LOADING STATE & NO RESULTS (Optimized Display)          */
+/* ========================================================== */
+.main-grid-layout {
+    position: relative;
+}
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.98);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 95; 
+    border-radius: 12px;
+    transition: opacity 0.4s;
+}
+.loading-overlay i {
+    font-size: 3rem;
+    color: var(--color-accent-blue);
+    text-shadow: 0 0 15px rgba(0, 175, 255, 0.8);
+    margin-bottom: 20px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.loading-overlay p {
+    color: var(--color-accent-blue);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#componentSection {
+    position: relative; 
+    min-height: 500px;
+    transition: opacity 0.5s;
+}
+.no-results-msg {
+    grid-column: 1 / -1;
+    padding: 80px;
+    text-align: center;
+    font-size: 1.3rem;
+    background: var(--color-bg-light);
+    border: 2px dashed var(--color-danger);
+    border-radius: 12px;
+    margin: 40px auto;
+    width: 80%;
+    color: var(--color-text-secondary);
+    box-shadow: 0 0 10px rgba(244, 67, 54, 0.2);
+}
+
+
+/* ========================================================== */
+/* 9. MEDIA QUERIES (Mobile-First Optimization)               */
+/* ========================================================== */
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+    .main-grid-layout {
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+    .sidebar-filters {
+        position: static;
+        top: auto;
+    }
+    .component-section {
+        /* Adjusted min width to prevent two tiny cards on smaller tablets */
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+        gap: 25px; 
+    }
+    .toolbar-top {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px;
+    }
+    .search-container, .sorting-container {
+        max-width: none;
+        width: 100%;
+    }
+    .feature-banners-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+/* Small Tablet / Large Mobile (768px) */
+@media (max-width: 768px) {
+    .main-content-padding {
+        padding: 30px 15px;
+    }
+    .hero-section {
+        padding: 80px 15px 60px;
+        margin-bottom: 40px;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+    .component-section {
+        /* Allows for two columns on most phones in landscape */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    }
+    .feature-banners-grid {
+        gap: 15px;
+    }
+    .feature-banner h3 {
+        font-size: 1.4rem;
+    }
+    .component-img-container {
+        height: 180px; /* Further reduction for better mobile fit */
+    }
+}
+
+
+/* Mobile (500px) - Full Mobile Optimization */
+@media (max-width: 500px) {
+    html { font-size: 15px; }
+
+    .hero-cta-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .primary-cta-btn, .secondary-cta-btn {
+        padding: 14px 30px;
+        width: 100%;
+    }
+    
+    .feature-banners-grid {
+        grid-template-columns: 1fr; /* Single column banners */
+    }
+    .feature-banner:hover {
+        transform: none; 
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    .component-section {
+        grid-template-columns: 1fr; /* Single column product list */
+        gap: 15px;
+    }
+
+    .component-card:hover {
+        transform: none; 
+        box-shadow: var(--shadow-card);
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .price {
+        font-size: 1.8rem;
+    }
+    .detail-btn, .cart-btn {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+    .no-results-msg {
+        padding: 40px 20px;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+    .sidebar-filters {
+        padding: 20px;
+    }
+}

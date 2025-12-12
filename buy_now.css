@@ -1,0 +1,348 @@
+/*
+|--------------------------------------------------------------------------
+| Checkout Summary Page - Flipkart/Amazon Style Light Theme
+|--------------------------------------------------------------------------
+| Focus: Light Background, Boxed Sections, Sticky Price Panel, Blue/Green Accents
+|
+*/
+
+/* ========================================================== */
+/* 1. CSS VARIABLES & RESETS (LIGHT THEME)                    */
+/* ========================================================== */
+:root {
+    /* Light Theme Palette */
+    --color-bg-light: #FFFFFF;        /* Pure White */
+    --color-bg-medium: #F5F5F5;       /* Light Gray Background */
+    --color-bg-dark: #E0E0E0;         /* Lighter Border/Box */
+    
+    --color-text-primary: #111111;    /* Near Black Text */
+    --color-text-secondary: #555555;  /* Muted Gray Text */
+    
+    --color-accent-blue: #2874F0;     /* Flipkart Blue */
+    --color-accent-green: #388E3C;    /* Success Green */
+    --color-danger: #D32F2F;          /* Red */
+    --color-border-subtle: #DDDDDD;   /* Light Border */
+    
+    --shadow-light: 0 1px 4px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+    --font-primary: 'Inter', sans-serif;
+    --max-content-width: 1200px;
+    --transition-medium: 0.3s; 
+}
+
+/* Global Setup */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body.light-theme { 
+    background: var(--color-bg-medium); /* Off-white background */
+    color: var(--color-text-secondary); 
+    font-family: var(--font-primary);
+    line-height: 1.6;
+}
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.main-content-padding { padding-top: 30px; padding-bottom: 60px; }
+a { text-decoration: none; color: var(--color-accent-blue); transition: var(--transition-medium); }
+
+
+/* ========================================================== */
+/* 2. PAGE HEADER & GRID LAYOUT                               */
+/* ========================================================== */
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Summary boxes and Sticky Panel */
+    gap: 20px;
+    max-width: 950px;
+    margin: 0 auto;
+    align-items: flex-start; /* Keep panels aligned to top */
+}
+
+/* 2a. Left Side: Summary Boxes */
+.checkout-summary-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.summary-box {
+    background: var(--color-bg-light);
+    border-radius: 4px;
+    box-shadow: var(--shadow-light);
+    padding: 20px;
+    border: 1px solid var(--color-border-subtle);
+}
+
+.box-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+.box-step {
+    background: var(--color-accent-blue);
+    color: white;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    margin-right: 15px;
+}
+.section-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    flex-grow: 1;
+}
+
+/* Change/Edit Button */
+.btn-change-edit {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent-blue);
+    padding: 5px 10px;
+    border: 1px solid var(--color-accent-blue);
+    border-radius: 4px;
+}
+.btn-change-edit:hover {
+    background: var(--color-accent-blue);
+    color: var(--color-bg-light);
+}
+
+/* Address Box Details */
+.address-details {
+    padding-left: 45px; /* Aligns with content */
+}
+.address-details p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+}
+.address-details strong {
+    color: var(--color-text-primary);
+    font-size: 1rem;
+}
+
+/* Order Item Box */
+.order-item-detail {
+    padding-left: 45px;
+    margin-bottom: 15px;
+}
+.item-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+.item-price-unit {
+    color: var(--color-accent-blue);
+    font-size: 0.9rem;
+}
+
+/* Quantity Field Styling */
+.quantity-form {
+    padding-left: 45px;
+    margin-bottom: 0;
+}
+.quantity-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.quantity-group label {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+.quantity-group input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    background: var(--color-bg-medium);
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-primary);
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+.recalc-info {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+/* Payment Options (Radio Buttons) */
+.payment-form {
+    padding-left: 45px;
+}
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+.payment-radio-label {
+    background: var(--color-bg-medium);
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--color-bg-medium);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+.payment-radio-label:has(input:checked) {
+    border-color: var(--color-accent-green);
+    background: #E8F5E9; /* Very light green background */
+}
+.payment-radio-label i {
+    margin-right: 10px;
+    color: var(--color-accent-blue);
+}
+
+
+/* Final CTA Button */
+.checkout-cta-bottom {
+    padding-top: 15px;
+    border-top: 1px solid var(--color-border-subtle);
+}
+.place-order-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--color-accent-green);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-medium);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.place-order-btn:hover {
+    background: #4CAF50;
+    transform: translateY(-1px);
+}
+
+
+/* 2b. Right Side: Sticky Price Summary Panel */
+.price-summary-sticky {
+    background: var(--color-bg-light);
+    border-radius: 4px;
+    box-shadow: var(--shadow-medium);
+    padding: 15px;
+    border: 1px solid var(--color-border-subtle);
+    position: sticky; /* Making it sticky for better UX */
+    top: 30px; 
+}
+.sticky-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.price-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+.price-line span:first-child {
+    color: var(--color-text-secondary);
+}
+.price-line .shipping-cost {
+    color: var(--color-accent-green); /* Free/Low cost looks good in green */
+    font-weight: 600;
+}
+
+.total-line-sticky {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-top: 2px dashed var(--color-border-subtle);
+    color: var(--color-text-primary);
+}
+
+/* Guarantee Box */
+.guarantee-box {
+    margin-top: 15px;
+    padding: 10px;
+    background: #E8F5E9;
+    border: 1px solid var(--color-accent-green);
+    border-radius: 4px;
+    color: var(--color-accent-green);
+    font-size: 0.85rem;
+}
+.guarantee-box i {
+    margin-right: 5px;
+}
+
+/* ========================================================== */
+/* 5. MEDIA QUERIES (Mobile Optimization)                     */
+/* ========================================================== */
+@media (max-width: 850px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+    .price-summary-sticky {
+        position: static; /* Remove sticky on mobile */
+        order: -1; /* Place price summary above the boxes on mobile */
+        margin-bottom: 15px;
+    }
+}
+
+/* ... (Existing CSS code remains unchanged above this point) ... */
+
+/* ========================================================== */
+/* NEW: BACK LINK STYLING                                     */
+/* ========================================================== */
+
+.back-link-container {
+    padding-bottom: 20px;
+    /* max-width को checkout-grid के बराबर सेट करें ताकि यह alignment में रहे */
+    max-width: 950px; 
+    margin: 0 auto;
+}
+
+.btn-go-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary); /* Muted gray for a cleaner look */
+    transition: color var(--transition-medium);
+}
+
+.btn-go-back:hover {
+    color: var(--color-accent-blue); /* Blue on hover */
+}
+
+.btn-go-back i {
+    font-size: 0.9rem;
+}
+
+
+/* ========================================================== */
+/* ... (Rest of the existing CSS code remains unchanged) ...  */

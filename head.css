@@ -1,0 +1,75 @@
+
+/* Reset */
+a{
+    text-decoration: none;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+.mini_head {
+    background-color: #eef1f5;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* name left, options right */
+    align-items: center;
+    padding: 1vmin 5vmin;  /* thoda space left-right */
+}
+
+/* Company Name */
+.comp_name {
+    font-size: 6vmin;
+    font-weight: 700;
+}
+
+/* Options Container */
+.option_page {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 3vmin;
+    gap: 4vmin;  /* equal spacing between options */
+}
+
+/* Single Option */
+.op_border {
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 5vmin;
+    padding: 1vmin 3vmin;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.op_border:hover {
+    border: 2px solid red;
+    background-color: #ffeaea;
+}
+
+/* 📱 Mobile View */
+@media (max-width:600px) {
+    .mini_head {
+        flex-direction: column; /* naam upar, options niche */
+        align-items: center;
+        padding: 3vmin;
+    }
+
+    .comp_name {
+        font-size: 5vmin;
+        margin-bottom: 2vmin;
+    }
+
+    .option_page {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2vmin;
+        font-size: 4vmin;
+    }
+
+    .op_border {
+        padding: 1.5vmin 4vmin;
+    }
+}

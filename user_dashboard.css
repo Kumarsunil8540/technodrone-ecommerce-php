@@ -1,0 +1,414 @@
+/*
+|--------------------------------------------------------------------------
+| User Dashboard - Clean Light Theme (Sidebar + Content Layout)
+|--------------------------------------------------------------------------
+*/
+
+/* ========================================================== */
+/* 1. CSS VARIABLES & BASE STYLES (LIGHT THEME)               */
+/* ========================================================== */
+:root {
+    /* Color Palette: Light & Clean */
+    --color-bg-light: #FFFFFF;        /* Main Content/Box Background */
+    --color-bg-medium: #F7F7F7;       /* Body/Sidebar Background */
+    --color-bg-dark: #EAEAEA;         /* Border/Subtle Element */
+    
+    --color-text-primary: #333333;    /* Main Text */
+    --color-text-secondary: #777777;  /* Muted Text */
+    
+    --color-accent-blue: #2874F0;     /* Primary Focus/Active (Flipkart Blue) */
+    --color-accent-green: #4CAF50;    /* Success/Completed */
+    --color-danger: #F44336;          /* Danger/Shipped */
+    
+    --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    --font-primary: 'Inter', sans-serif;
+    --sidebar-width: 260px;
+    --transition-fast: 0.2s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.light-theme {
+    background: var(--color-bg-medium);
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+}
+
+/* Main Layout */
+.dashboard-container {
+    display: flex;
+    max-width: 1300px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden; /* Contains the shadows */
+    box-shadow: var(--shadow-light);
+    background: var(--color-bg-light); /* Ensure body area is white */
+}
+
+/* ========================================================== */
+/* 2. SIDEBAR STYLING                                         */
+/* ========================================================== */
+.sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    background: var(--color-bg-medium); /* Light gray background */
+    padding: 25px 0 20px 0;
+    border-right: 1px solid var(--color-bg-dark);
+}
+
+.user-info {
+    text-align: center;
+    padding: 0 20px 20px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-bg-dark);
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid var(--color-accent-blue);
+    box-shadow: var(--shadow-light);
+}
+
+.user-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+.user-info p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    padding: 0 15px;
+}
+.menu-divider {
+    height: 1px;
+    background: var(--color-bg-dark);
+    margin: 10px 0;
+}
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+.sidebar-menu li a i { margin-right: 12px; font-size: 1.1rem; color: var(--color-text-secondary); }
+.sidebar-menu li a:hover {
+    background: var(--color-bg-dark);
+}
+.sidebar-menu li a.active {
+    background: var(--color-accent-blue);
+    color: white;
+    font-weight: 600;
+}
+.sidebar-menu li a.active i {
+    color: white; /* Active icon white */
+}
+.sidebar-menu li a.shop-link {
+    background: #E3F2FD; /* Light blue background for shop link */
+    border: 1px solid var(--color-accent-blue);
+    margin-bottom: 15px;
+    color: var(--color-accent-blue);
+    font-weight: 700;
+}
+.sidebar-menu li a.shop-link i {
+    color: var(--color-accent-blue);
+}
+
+.logout-link-item {
+    margin-top: 25px;
+}
+.logout-link-item a {
+    color: var(--color-danger);
+    border-top: 1px solid var(--color-bg-dark);
+}
+.logout-link-item a i {
+    color: var(--color-danger);
+}
+
+
+/* ========================================================== */
+/* 3. MAIN CONTENT STYLING                                    */
+/* ========================================================== */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.section-box {
+    background: var(--color-bg-light);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--color-bg-dark);
+    box-shadow: var(--shadow-light);
+}
+.tab-content:not(.active) {
+    display: none;
+}
+
+.main-content h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-accent-blue);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-bg-dark);
+}
+.main-content h2 i {
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+.section-desc {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+}
+
+
+/* Profile Form */
+.profile-form .form-group {
+    margin-bottom: 15px;
+}
+.profile-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+.profile-form input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    background: var(--color-bg-medium);
+    border: 1px solid var(--color-bg-dark);
+    border-radius: 4px;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+}
+.profile-form input:focus {
+    border-color: var(--color-accent-blue);
+    outline: none;
+}
+.profile-form input[readonly] {
+    opacity: 0.8;
+    background: var(--color-bg-dark);
+    cursor: default;
+}
+
+.btn-primary {
+    background: var(--color-accent-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: var(--transition-fast);
+}
+.btn-primary:hover {
+    background: #008CBA;
+}
+.btn-primary i {
+    margin-right: 8px;
+}
+
+
+/* Address Section Styling */
+.address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.address-card {
+    background: var(--color-bg-medium);
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--color-bg-dark);
+    max-width: 450px;
+}
+.address-card.default-address {
+    border: 2px solid var(--color-accent-green);
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+.address-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.address-header h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+.tag-default {
+    background: var(--color-accent-green);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: 10px;
+}
+.address-card p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--color-text-secondary);
+}
+.address-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+.btn-add-address {
+    background: var(--color-bg-light);
+    color: var(--color-accent-blue);
+    border: 1px dashed var(--color-accent-blue);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    max-width: 450px;
+    transition: background-color var(--transition-fast);
+}
+.btn-add-address:hover {
+    background: #E3F2FD;
+}
+.btn-add-address i {
+    margin-right: 8px;
+}
+.btn-secondary {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+.btn-secondary.edit-btn {
+    background: var(--color-accent-blue);
+    color: white;
+    border: 1px solid var(--color-accent-blue);
+}
+.btn-secondary.edit-btn:hover {
+    background: #008CBA;
+}
+.btn-secondary.delete-btn {
+    background: var(--color-danger);
+    color: white;
+    border: 1px solid var(--color-danger);
+}
+.btn-secondary.delete-btn:hover {
+    background: #D32F2F;
+}
+
+
+/* Items List (Orders, Courses, Components) - Reusing the previous grid structure */
+.items-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.item-card {
+    background: var(--color-bg-medium);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid var(--color-bg-dark);
+}
+.item-card:hover {
+    border-left-color: var(--color-accent-blue);
+}
+
+.item-card h3 {
+    color: var(--color-text-primary);
+}
+
+.status {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+.status.shipped, .status.ongoing {
+    background: #FFE0B2; /* Light Orange */
+    color: #FF9800;
+}
+.status.delivered, .status.completed {
+    background: #E8F5E9; /* Light Green */
+    color: var(--color-accent-green);
+}
+.item-card a.btn-secondary {
+    background: var(--color-accent-blue);
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+.item-card a.btn-secondary:hover {
+    background: #008CBA;
+}
+
+/* ========================================================== */
+/* 4. MEDIA QUERIES (RESPONSIVENESS)                          */
+/* ========================================================== */
+@media (max-width: 992px) {
+    .dashboard-container {
+        flex-direction: column;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--color-bg-dark);
+        padding: 15px 0;
+    }
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 5px;
+        padding: 0 10px;
+    }
+    .sidebar-menu li {
+        flex: 1 1 auto;
+        min-width: 150px;
+        text-align: center;
+    }
+    .sidebar-menu li a {
+        justify-content: center;
+        padding: 10px 15px;
+    }
+    .sidebar-menu li a i { display: none; }
+    .user-info {
+        display: none; /* Hide detailed user info on small screens */
+    }
+    .main-content {
+        padding: 20px;
+    }
+    .items-list {
+        grid-template-columns: 1fr;
+    }
+}
